@@ -39,7 +39,7 @@ export default function Index() {
             onChange={(e) => setSalary(e.target.value)}
             placeholder="Digite seu salário em reais aqui"
             className={` webkit-appearance-none -moz-appearance-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none
-                text-4xl text-center w-full h-12 bg-gray-100 border-none focus:border-none focus:outline-none focus:ring-0 focus:yellow-400 focus:ring-yellow-400`}
+                text-4xl text-center w-full h-12 bg-gray-100 focus-visible:ring-1 focus-visible:ring-yellow-400`}
             // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
           />
@@ -103,7 +103,9 @@ export default function Index() {
         {/* Navigation Menu */}
         <nav className="flex justify-end space-x-4 text-md">
           <Link
-            to="#"
+            to="https://cdn.mises.org/a-anatomia-do-estado_portuguese.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="border-2 rounded-md border-transparent hover:border-solid hover:border-yellow-400 p-1"
           >
             A Anatomia do Estado
