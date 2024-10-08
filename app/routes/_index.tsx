@@ -1,5 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
+import { useState } from "react";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 
 export const meta: MetaFunction = () => {
   return [
@@ -17,6 +19,9 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  const [salary, setSalary] = useState("6867");
+  const dollarValue = (Number(salary) / 5.5).toFixed(0); // Simple fixed conversion for demo
+
   return (
     <div className="min-h-screen bg-white p-8">
       <div className="max-w-4xl mx-auto space-y-12">
@@ -24,9 +29,23 @@ export default function Index() {
         <section className="text-center space-y-8">
           <h1 className="text-4xl font-bold">Meu Salário em Reais</h1>
 
-          {/* Salary Display */}
-          <div className="bg-gray-500 text-white p-6">
-            <h2 className="text-5xl font-bold">BRL 6867</h2>
+           {/* Salary Input */}
+          <div className="bg-gray-500 text-white p-6 border-2 border-blue-500">
+            <div className="flex items-center justify-center space-x-2">
+              <span className="text-5xl font-bold">BRL</span>
+              <Input 
+                type="number"
+                value={salary}
+                onChange={(e) => setSalary(e.target.value)}
+                className="text-5xl font-bold bg-transparent border-none text-white text-center w-48 focus:outline-none"
+              />
+            </div>
+          </div>
+
+          {/* Dollar Conversion */}
+          <div className="space-y-2">
+            <h2 className="text-4xl font-bold">Meu Salário em Dólar</h2>
+            <p className="text-5xl font-bold">USD {dollarValue}</p>
           </div>
         </section>
 
@@ -73,6 +92,14 @@ export default function Index() {
             </Card>
           </div>
         </section>
+
+        {/* Navigation Menu */}
+        <nav className="flex justify-end space-x-6 text-lg">
+          <a href="#" className="hover:underline">A Anatomia do Estado</a>
+          <a href="#" className="hover:underline">Meu Salário em BTC</a>
+          <a href="#" className="hover:underline">Fontes</a>
+          <a href="#" className="hover:underline">FAQ</a>
+        </nav>
       </div>
     </div>
   );
