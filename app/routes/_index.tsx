@@ -24,7 +24,7 @@ export default function Index() {
   const dollarValue = (Number(salary) / 5.5).toFixed(2); // Simple fixed conversion for demo
 
   return (
-    <div className="min-h-screen bg-white p-8">
+    <div className="max-h-screen bg-white p-8">
       <div className="max-w-4xl mx-auto space-y-4">
         {/* Header Section */}
         <section className="text-center space-y-4">
@@ -60,10 +60,10 @@ export default function Index() {
         <section className="mt-16">
           <h2 className="text-4xl font-bold mb-2">Você sabia?</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 bg-black text-white rounded-xl p-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 bg-black text-white rounded-xl p-2">
             {/* Card 1 */}
             <Card className="bg-transparent border-transparent text-yellow-400 hover:border-solid hover:border-yellow-400">
-              <CardHeader>
+              <CardHeader className="">
                 <h3 className="text-xl font-bold">Com seu salário:</h3>
               </CardHeader>
               <CardContent>
@@ -77,11 +77,12 @@ export default function Index() {
             {/* Card 2 */}
             <Card className="bg-transparent border-transparent text-yellow-400 hover:border-solid hover:border-yellow-400">
               <CardHeader>
-                <h3 className="text-xl font-bold">Title 2</h3>
+                <h3 className="text-xl font-bold">Poder de Compra</h3>
               </CardHeader>
               <CardContent>
                 <p className="italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Com seu salário você pode comprar X produtos, enquanto nos EUA
+                  poderia comprar x produtos
                 </p>
               </CardContent>
             </Card>
@@ -89,19 +90,25 @@ export default function Index() {
             {/* Card 3 */}
             <Card className="bg-transparent border-transparent text-yellow-400 hover:border-solid hover:border-yellow-400">
               <CardHeader>
-                <h3 className="text-xl font-bold">Title 3</h3>
+                <h3 className="text-xl font-bold">Anuncie aqui:</h3>
               </CardHeader>
               <CardContent>
-                <p className="italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
+                <p className="italic">Em breve...</p>
               </CardContent>
             </Card>
           </div>
         </section>
 
         {/* Navigation Menu */}
-        <nav className="flex justify-end space-x-4 text-md">
+        <nav className="grid justify-items-end md:flex md:justify-end md:space-x-4">
+          <Link
+            to="https://impostometro.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-2 rounded-md border-transparent hover:border-solid hover:border-yellow-400 p-1"
+          >
+            Impostômetro
+          </Link>
           <Link
             to="https://cdn.mises.org/a-anatomia-do-estado_portuguese.pdf"
             target="_blank"
@@ -123,7 +130,7 @@ export default function Index() {
             Fontes
           </Link>
           <Link
-            to="#"
+            to="faq"
             className="border-2 rounded-md border-transparent hover:border-solid hover:border-yellow-400 p-1"
           >
             FAQ
