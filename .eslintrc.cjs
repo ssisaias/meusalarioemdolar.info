@@ -21,8 +21,9 @@ module.exports = {
   },
   ignorePatterns: ["!**/.server", "!**/.client"],
 
+  /* https://github.com/shadcn-ui/ui/issues/120#issuecomment-1887178298 */
   // Base config
-  extends: ["eslint:recommended"],
+  extends: ["@remix-run/eslint-config", "@remix-run/eslint-config/node"],
 
   overrides: [
     // React
