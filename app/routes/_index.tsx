@@ -64,12 +64,13 @@ export default function Index() {
             {/* Card 1 */}
             <Card className="bg-transparent border-transparent text-yellow-400 hover:border-solid hover:border-yellow-400">
               <CardHeader className="">
-                <h3 className="text-xl font-bold">Com seu salário:</h3>
+                <h3 className="text-xl font-bold">Salário mínimo:</h3>
               </CardHeader>
               <CardContent>
                 <p className="italic">
-                  Você leva X meses para comprar um macbook pro 2021, enquanto
-                  nos EUA levaria x meses
+                  No brasil, trabalhando durante 13 meses é possível comprar um
+                  MacBook Pro 14 - M3/512gb/8GB, enquanto nos EUA leva
+                  aproximadamente 1 mês e meio.
                 </p>
               </CardContent>
             </Card>
@@ -81,7 +82,7 @@ export default function Index() {
               </CardHeader>
               <CardContent>
                 <p className="italic">
-                  Com seu salário você pode comprar X produtos, enquanto nos EUA
+                  Com seu salário você pode comprar 0.1 produtos, enquanto nos EUA
                   poderia comprar x produtos
                 </p>
               </CardContent>
@@ -124,7 +125,7 @@ export default function Index() {
             Meu Salário em BTC
           </Link>
           <Link
-            to="#"
+            to="sources"
             className="border-2 rounded-md border-transparent hover:border-solid hover:border-yellow-400 p-1"
           >
             Fontes

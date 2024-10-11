@@ -7,7 +7,7 @@ import {
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import { Link } from "@remix-run/react";
 
-export default function Index() {
+export default function Page() {
   return (
     <div className="min-h-screen bg-white p-8">
       <div className="max-w-4xl mx-auto space-y-4">
