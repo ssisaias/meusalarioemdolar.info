@@ -78,12 +78,12 @@ export default function Index() {
             {/* Card 2 */}
             <Card className="bg-transparent border-transparent text-yellow-400 hover:border-solid hover:border-yellow-400">
               <CardHeader>
-                <h3 className="text-xl font-bold">Poder de Compra</h3>
+                <h3 className="text-xl font-bold">Poder de Compra:</h3>
               </CardHeader>
               <CardContent>
                 <p className="italic">
-                  Com seu salário você pode comprar 0.1 produtos, enquanto nos EUA
-                  poderia comprar x produtos
+                  Com seu salário você pode comprar 0.1 produtos, enquanto nos
+                  EUA poderia comprar x produtos
                 </p>
               </CardContent>
             </Card>
