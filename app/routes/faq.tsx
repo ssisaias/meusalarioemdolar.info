@@ -32,7 +32,7 @@ export default function Page() {
                 <ul className="list-disc pl-4">
                   <li>Remix</li>
                   <li>Vite</li>
-                  <li>zustand</li>
+                  <li>docker</li>
                 </ul>
                 <p className="mt-4">
                   O código fonte está disponível para contribuição em{" "}
