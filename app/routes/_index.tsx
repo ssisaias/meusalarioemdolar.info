@@ -2,7 +2,9 @@ import type { MetaFunction } from "@remix-run/node";
 import { useState } from "react";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Link } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
+import { json } from "@remix-run/node";
+import { getScrapedData } from "@/db/interface";
 
 export const meta: MetaFunction = () => {
   return [
@@ -19,9 +21,16 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export const loader = async () => {
+  return json({
+    data: await getScrapedData(),
+  });
+};
+
 export default function Index() {
+  const { data } = useLoaderData<typeof loader>();
   const [salary, setSalary] = useState("1412");
-  const dollarValue = (Number(salary) / 5.5).toFixed(2); // Simple fixed conversion for demo
+  const dollarValue = Number(salary) * (data?.rate ?? 5.6); // Simple fixed conversion for demo
 
   return (
     <div className="max-h-screen bg-white p-8">
@@ -51,7 +60,9 @@ export default function Index() {
               {new Intl.NumberFormat("en-US", {
                 style: "currency",
                 currency: "USD",
-              }).format(Number(dollarValue))}
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              }).format(dollarValue)}
             </p>
           </div>
         </section>
@@ -59,18 +70,16 @@ export default function Index() {
         {/* "Você sabia?" Section */}
         <section className="mt-16">
           <h2 className="text-4xl font-bold mb-2">Você sabia?</h2>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 bg-black text-white rounded-xl p-2">
             {/* Card 1 */}
             <Card className="bg-transparent border-transparent text-yellow-400 hover:border-solid hover:border-yellow-400">
               <CardHeader className="">
-                <h3 className="text-xl font-bold">Salário mínimo:</h3>
+                <h3 className="text-xl font-bold">Trabalhe, palhaço!</h3>
               </CardHeader>
               <CardContent>
                 <p className="italic">
-                  No brasil, trabalhando durante 13 meses é possível comprar um
-                  MacBook Pro 14 - M3/512gb/8GB, enquanto nos EUA leva
-                  aproximadamente 1 mês e meio.
+                  Em 2024, o brasileiro trabalhou 149 dias somente para pagar
+                  impostos.
                 </p>
               </CardContent>
             </Card>
@@ -78,13 +87,16 @@ export default function Index() {
             {/* Card 2 */}
             <Card className="bg-transparent border-transparent text-yellow-400 hover:border-solid hover:border-yellow-400">
               <CardHeader>
-                <h3 className="text-xl font-bold">Poder de Compra:</h3>
+                <h3 className="text-xl font-bold">Poder de Compra</h3>
               </CardHeader>
               <CardContent>
-                <p className="italic">
-                  Com seu salário você pode comprar 0.1 produtos, enquanto nos
-                  EUA poderia comprar x produtos
-                </p>
+                <iframe
+                  width="100%"
+                  height="auto"
+                  src="https://www.youtube.com/embed/BsGC5tgzGP0?si=t1mpFqrvzLdKpuoM"
+                  title="YouTube video player"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                ></iframe>
               </CardContent>
             </Card>
 
