@@ -15,7 +15,7 @@ export default function Page() {
           <h1 className="text-3xl font-bold">FAQ (PT-Br)</h1>
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
-              <AccordionTrigger>Qual a motivação?</AccordionTrigger>
+              <AccordionTrigger>Motivação:</AccordionTrigger>
               <AccordionContent>
                 <p>
                   1. Ter um local direto para lembrar-me sempre a merda que é
