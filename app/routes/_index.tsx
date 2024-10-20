@@ -131,7 +131,7 @@ export default function Index() {
             A Anatomia do Estado
           </Link>
           <Link
-            to="#"
+            to="https://meusalarioembtc.info"
             className="border-2 rounded-md border-transparent hover:border-solid hover:border-yellow-400 p-1"
           >
             Meu Salário em BTC
