@@ -64,7 +64,12 @@ export default function Page() {
               <p>
                 <span>1 USD = {(1 / data.rate).toFixed(6)} BRL</span>
               </p>
-              <p className="font-light">{data.lastUpdateStr}</p>
+              <p className="font-light">
+                {data.lastUpdateStr.substring(
+                  0,
+                  data.lastUpdateStr.lastIndexOf("UTC") + 3
+                )}
+              </p>
             </Link>
           )}
 

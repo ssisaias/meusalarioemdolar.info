@@ -96,6 +96,7 @@ export default function Index() {
                   src="https://www.youtube.com/embed/BsGC5tgzGP0?si=t1mpFqrvzLdKpuoM"
                   title="YouTube video player"
                   allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
                 ></iframe>
               </CardContent>
             </Card>
@@ -141,12 +142,6 @@ export default function Index() {
             className="border-2 rounded-md border-transparent hover:border-solid hover:border-yellow-400 p-1"
           >
             Fontes
-          </Link>
-          <Link
-            to="faq"
-            className="border-2 rounded-md border-transparent hover:border-solid hover:border-yellow-400 p-1"
-          >
-            FAQ
           </Link>
         </nav>
       </div>
