@@ -31,6 +31,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <link rel="manifest" href="/manifest.json" />
         <Links />
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-9715609143171289"
+        ></meta>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9715609143171289"
+          crossOrigin="anonymous"
+        ></script>
       </head>
       <body>
         {children}
