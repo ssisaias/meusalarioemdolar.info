@@ -1,1 +1,1 @@
-pm2 start npm --name "meusaldol" -- start
+PORT=0000 DATABASE=placeholdername.db pm2 start npm --restart-delay=5000 --name "instancename" -- start
