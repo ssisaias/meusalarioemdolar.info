@@ -36,14 +36,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <link rel="manifest" href="/manifest.json" />
         <Links />
-        <meta
-          name="google-adsense-account"
-          content="ca-pub-9715609143171289"
-        ></meta>
         <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9715609143171289"
-          crossOrigin="anonymous"
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="6f6de693-d545-4cf5-b406-aa69b1f8ffdf"
         ></script>
       </head>
       <body>
