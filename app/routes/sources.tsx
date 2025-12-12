@@ -53,32 +53,32 @@ export default function Page() {
 
           {data && (
             <Link
-              to={data.source}
+              to="https://search.brave.com/search?q=usd+to+brl"
               className="space-y-1 hover:underline decoration-yellow-400"
             >
-              <p className="text-sm">Taxa de conversão: xe.com</p>
-              <p>
-                <span>1 BRL = {data.rate.toFixed(6)} USD</span>
+              <p className="text-sm">
+                Taxa de conversão: brave.com
               </p>
               <p>
-                <span>1 USD = {(1 / data.rate).toFixed(6)} BRL</span>
+                <span>1 USD = {data.rate.toFixed(3)} BRL</span>
+              </p>
+              <p>
+                <span>1 BRL = {(1 / data.rate).toFixed(3)} US</span>
               </p>
               <p className="font-light">
-                {data.lastUpdateStr.substring(
-                  0,
-                  data.lastUpdateStr.lastIndexOf('UTC') + 3,
-                )}
+                {new Date(data.lastUpdateStr).toLocaleString()}
               </p>
             </Link>
           )}
-
-          {citations.map((citation) => (
-            <SourceCitation
-              key={citation.url}
-              citationText={citation.citation}
-              citationUrl={citation.url}
-            />
-          ))}
+          <div className="mt-4">
+            {citations.map((citation) => (
+              <SourceCitation
+                key={citation.url}
+                citationText={citation.citation}
+                citationUrl={citation.url}
+              />
+            ))}
+          </div>
         </section>
 
         {/* Navigation Menu */}

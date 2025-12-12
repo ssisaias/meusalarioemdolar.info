@@ -12,29 +12,35 @@ import { AdsBanner } from '~/components/ads-banner'
 export const meta: MetaFunction = () => {
   return [
     { title: 'Meu Salário em Dólar' },
-    { name: 'Descubra quanto vale seu salário em dólar' },
+    { name: 'Quanto vale seu salário bostileiro em dólar' },
     {
       name: 'keywords',
       content: 'salário, dólar, conversão, brasil, estados unidos',
     },
     {
       name: 'description',
-      content: 'Descubra quanto vale seu salário em dólar',
+      content: 'Quanto vale seu salário bostileiro em dólar',
     },
   ]
 }
 
-export async function loader({ params }: Route.LoaderArgs) {
-  return await getScrapedData()
+export async function loader({}: Route.LoaderArgs) {
+  try {
+    return await getScrapedData()
+  } catch (error) {
+    console.error('Error fetching conversion rate:', error)
+    return null
+  }
 }
 
 export default function Index({ loaderData }: Route.ComponentProps) {
   const data = loaderData
-  const [salary, setSalary] = useState('1518')
-  const dollarValue = Number(salary) * (data?.rate ?? 5.6) // Simple fixed conversion for demo
+  const [brazillianSalary, setSalary] = useState('1621')
+  const dollarValue = (Number(brazillianSalary) * 1) / (data?.rate ?? 5.6) // Simple fixed conversion for demo
   const [currentTheme, setCurrentTheme] = useState<string | undefined | null>(
     undefined,
   )
+  const hasError = !data
   const theme = useTheme()
   useEffect(() => {
     if (theme.theme) {
@@ -78,7 +84,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
           {/* Salary Input */}
           <Input
             type="number"
-            value={salary}
+            value={brazillianSalary}
             max={9999999999999}
             maxLength={15}
             onChange={(e) => setSalary(e.target.value)}
@@ -106,6 +112,12 @@ export default function Index({ loaderData }: Route.ComponentProps) {
             </p>
           </div>
         </section>
+
+        {hasError && (
+          <p className="text-red-500 text-center">
+            Estamos com problemas! Os valores acima podem estar desatualizados.
+          </p>
+        )}
 
         {/* "Você sabia?" Section */}
         <section className="mt-16">
